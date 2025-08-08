@@ -1,0 +1,32 @@
+{
+  "search_title": "Try Searching For",
+  "search_subtitle": "Thousands of luxury home enthusiasts just like you have found their dream home",
+  "categories": {
+    "title": "Browse by Property Type",
+    "subtitle": "Explore our diverse range of properties to find your perfect match",
+    "apartment": {
+      "title": "Apartment",
+      "count": "234 Property"
+    },
+    "villa": {
+      "title": "Villa",
+      "count": "234 Property"
+    },
+    "studio": {
+      "title": "Studio",
+      "count": "234 Property"
+    },
+    "office": {
+      "title": "Office",
+      "count": "234 Property"
+    },
+    "townhouse": {
+      "title": "Townhouse",
+      "count": "234 Property"
+    },
+    "commercial": {
+      "title": "Commercial",
+      "count": "234 Property"
+    }
+  }
+}

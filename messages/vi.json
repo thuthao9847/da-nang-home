@@ -1,0 +1,32 @@
+{
+  "search_title": "Tìm Kiếm Bất Động Sản",
+  "search_subtitle": "Hàng nghìn người yêu thích bất động sản như bạn đã tìm thấy ngôi nhà mơ ước của họ",
+  "categories": {
+    "title": "Duyệt theo Loại Bất Động Sản",
+    "subtitle": "Khám phá các loại bất động sản đa dạng của chúng tôi để tìm căn nhà phù hợp nhất",
+    "apartment": {
+      "title": "Căn Hộ",
+      "count": "234 Bất động sản"
+    },
+    "villa": {
+      "title": "Biệt Thự",
+      "count": "234 Bất động sản"
+    },
+    "studio": {
+      "title": "Studio",
+      "count": "234 Bất động sản"
+    },
+    "office": {
+      "title": "Văn Phòng",
+      "count": "234 Bất động sản"
+    },
+    "townhouse": {
+      "title": "Nhà Phố",
+      "count": "234 Bất động sản"
+    },
+    "commercial": {
+      "title": "Thương Mại",
+      "count": "234 Bất động sản"
+    }
+  }
+}
