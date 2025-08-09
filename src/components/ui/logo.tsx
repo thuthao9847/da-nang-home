@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { HomeIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
 export function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2">
-      <HomeIcon className="h-8 w-8 text-blue-600" />
-      <span className="text-xl font-bold">Da Nang Home</span>
+    <Link href="/" className="flex items-center gap-3">
+      <Image src="/images/logo.png" alt="Da Nang Home" width={56} height={56} className="h-12 w-12" />
+      <span className="text-2xl font-bold">Da Nang Home</span>
     </Link>
   );
 }

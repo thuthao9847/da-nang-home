@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -60,16 +61,9 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <div className="flex items-center gap-2">
-              <div className="bg-primary-500 relative h-10 w-10 overflow-hidden rounded-lg">
-                <div className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white">
-                  P
-                </div>
-              </div>
-              <span className="text-xl font-bold text-gray-900">
-                PROTY
-                <span className="block text-xs font-normal text-gray-500">REAL ESTATE</span>
-              </span>
+            <div className="flex items-center gap-0">
+              <Image src="/images/logo.png" alt="Da Nang Home" width={96} height={96} className="h-20 w-20 lg:h-24 lg:w-24" />
+              <span className="-ml-1 text-sm lg:text-base font-semibold tracking-wider uppercase text-gray-600 leading-none">Real Estate</span>
             </div>
           </Link>
         </div>
@@ -159,12 +153,11 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <div className="flex items-center gap-2">
-                <div className="bg-primary-500 relative h-8 w-8 overflow-hidden rounded-lg">
-                  <div className="absolute inset-0 flex items-center justify-center text-xl font-bold text-white">
-                    P
-                  </div>
+                <Image src="/images/logo.png" alt="Da Nang Home" width={48} height={48} className="h-12 w-12" />
+                <div className="leading-tight">
+                  <span className="block text-xl font-extrabold text-gray-900">TM</span>
+                  <span className="-mt-0.5 block text-xs uppercase tracking-widest text-gray-500">Real Estate</span>
                 </div>
-                <span className="text-lg font-bold">PROTY</span>
               </div>
             </Link>
             <button

@@ -1,24 +1,24 @@
 'use client'
 
 import { useState } from 'react'
-import { PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
+import { PhoneIcon, EnvelopeIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useTranslations } from '@/utils/translations'
+import { ContactForm } from '@/components/ui/contact-form'
 
 export default function FloatingContact() {
   const [activeButton, setActiveButton] = useState<'phone' | 'email' | null>(null)
   const { t } = useTranslations()
 
   return (
-    <div className="fixed bottom-24 right-8 z-40 flex flex-col gap-2">
+    <div className="fixed bottom-24 right-8 z-40 flex flex-col gap-3">
       {/* Phone Button */}
       <div className="relative flex justify-end">
         {activeButton === 'phone' && (
-          <a
-            href="tel:+84123456789"
-            className="absolute right-14 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-lg hover:bg-gray-50"
-          >
-            +84 123 456 789
-          </a>
+          <div className="sm:absolute sm:right-14 fixed inset-x-4 bottom-36 flex items-center justify-center sm:justify-end">
+            <div className="w-full sm:w-auto max-w-[calc(100vw-2rem)] rounded-2xl bg-white px-4 py-3 text-base font-semibold leading-6 text-secondary-900 shadow-xl ring-1 ring-secondary-100 whitespace-nowrap">
+              +84 123 456 789
+            </div>
+          </div>
         )}
         <button
           onClick={() => setActiveButton(activeButton === 'phone' ? null : 'phone')}
@@ -35,12 +35,22 @@ export default function FloatingContact() {
       {/* Email Button */}
       <div className="relative flex justify-end">
         {activeButton === 'email' && (
-          <a
-            href="mailto:contact@danang-home.com"
-            className="absolute right-14 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-lg hover:bg-gray-50"
-          >
-            contact@danang-home.com
-          </a>
+          <div className="sm:absolute sm:right-14 sm:bottom-0 fixed inset-x-4 bottom-24 flex items-end justify-center sm:justify-end z-50">
+            <div className="w-full sm:w-[22rem] max-w-[calc(100vw-2rem)] rounded-2xl bg-secondary-900 p-4 text-text-light shadow-2xl ring-1 ring-secondary-700">
+              <div className="mb-3 flex items-center justify-between">
+                <h3 className="text-sm font-semibold">Send us a Message</h3>
+                <button
+                  type="button"
+                  onClick={() => setActiveButton(null)}
+                  className="rounded-full p-1 text-secondary-300 hover:bg-secondary-800 hover:text-text-light"
+                  aria-label="Close"
+                >
+                  <XMarkIcon className="h-5 w-5" />
+                </button>
+              </div>
+              <ContactForm />
+            </div>
+          </div>
         )}
         <button
           onClick={() => setActiveButton(activeButton === 'email' ? null : 'email')}

@@ -24,10 +24,13 @@ const locations = [
   'Lien Chieu'
 ]
 
+const cities = ['All Cities', 'Da Nang', 'Ho Chi Minh']
+
 export default function Hero() {
   const { t } = useTranslations()
   const [selectedType, setSelectedType] = useState('all')
   const [selectedLocation, setSelectedLocation] = useState(locations[0])
+  const [selectedCity, setSelectedCity] = useState<string>('All Cities')
 
   return (
     <div className="relative min-h-screen">
@@ -59,7 +62,7 @@ export default function Hero() {
 
           <motion.div variants={fadeIn('up', 0.4)} className="mx-auto mt-10 max-w-3xl">
             <div className="rounded-xl bg-background/95 p-4 shadow-xl backdrop-blur-sm">
-              <div className="grid gap-4 md:grid-cols-3">
+              <div className="grid gap-4 md:grid-cols-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-secondary-700">
                     Property Type
@@ -72,6 +75,23 @@ export default function Hero() {
                     {propertyTypes.map((type) => (
                       <option key={type.id} value={type.id}>
                         {type.id === 'all' ? type.name : t(type.name)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-secondary-700">
+                    City
+                  </label>
+                  <select
+                    value={selectedCity}
+                    onChange={(e) => setSelectedCity(e.target.value)}
+                    className="w-full rounded-lg border border-secondary-300 p-2.5 text-secondary-700 transition-colors hover:border-primary-400 focus:border-primary-500 focus:outline-none"
+                  >
+                    {cities.map((city) => (
+                      <option key={city} value={city}>
+                        {city}
                       </option>
                     ))}
                   </select>

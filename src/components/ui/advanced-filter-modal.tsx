@@ -146,6 +146,16 @@ export function AdvancedFilterModal({
 
   useEffect(() => setValues(initial), [initial, isOpen])
 
+  // Close on Escape
+  useEffect(() => {
+    if (!isOpen) return
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [isOpen, onClose])
+
   const clamped = useMemo(() => {
     return {
       ...values,
@@ -182,9 +192,12 @@ export function AdvancedFilterModal({
   const fmt = (n: number) => `$${n.toLocaleString()}`
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-6">
-      <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-      <div className="relative z-10 w-full max-w-3xl rounded-[28px] bg-white p-6 sm:p-8 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-6" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/40" />
+      <div
+        className="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-[28px] bg-white p-6 sm:p-8 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="mb-4 flex items-center justify-between">
           <h3 className="text-3xl font-bold text-secondary-900">{title || t('advancedFilter.title')}</h3>
           <button onClick={onClose} className="rounded-full p-2 hover:bg-secondary-100">

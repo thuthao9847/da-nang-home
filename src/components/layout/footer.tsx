@@ -48,13 +48,16 @@ export default function Footer() {
             {/* Company Info */}
             <div>
               <Link href="/" className="block mb-6">
-                <Image
-                  src="/logo-white.svg"
-                  alt="Da Nang Home"
-                  width={150}
-                  height={40}
-                  className="h-10 w-auto"
-                />
+                <div className="inline-flex items-center gap-0 rounded-xl bg-white px-3 py-2 shadow-sm">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Da Nang Home"
+                    width={56}
+                    height={56}
+                    className="h-12 w-12 md:h-14 md:w-14"
+                  />
+                  <span className="-ml-1 text-sm md:text-base font-semibold tracking-wider uppercase text-gray-700 leading-none">Real Estate</span>
+                </div>
               </Link>
               <p className="text-gray-400 mb-6">
                 {t('footer.about.description')}

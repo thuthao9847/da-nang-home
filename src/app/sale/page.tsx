@@ -94,6 +94,8 @@ const locations = [
   'Lien Chieu'
 ]
 
+const cities = ['All Cities', 'Da Nang', 'Ho Chi Minh']
+
 const ITEMS_PER_PAGE = 8
 
 export default function SalePage() {
@@ -102,6 +104,8 @@ export default function SalePage() {
   const [selectedLocation, setSelectedLocation] = useState('All Locations')
   const [isTypeOpen, setIsTypeOpen] = useState(false)
   const [isLocationOpen, setIsLocationOpen] = useState(false)
+  const [selectedCity, setSelectedCity] = useState('All Cities')
+  const [isCityOpen, setIsCityOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [isAdvancedOpen, setIsAdvancedOpen] = useState(false)
   const [advanced, setAdvanced] = useState<AdvancedFilterValues>({
@@ -129,6 +133,8 @@ export default function SalePage() {
     const typeMatch = selectedType === 'all' || property.type === selectedType
     const locationMatch =
       selectedLocation === 'All Locations' || (property.location || '').includes(selectedLocation)
+    const cityMatch =
+      selectedCity === 'All Cities' || (property.location || '').toLowerCase().includes(selectedCity.toLowerCase())
     const q = searchQuery.trim().toLowerCase()
     const titleLc = (property.title || '').toLowerCase()
     const locLc = (property.location || '').toLowerCase()
@@ -141,7 +147,7 @@ export default function SalePage() {
     const areaMatch = area >= advanced.areaMin && area <= advanced.areaMax
     const bedsMatch = beds >= advanced.beds
     const bathsMatch = baths >= advanced.baths
-    return typeMatch && locationMatch && queryMatch && priceMatch && areaMatch && bedsMatch && bathsMatch
+    return typeMatch && locationMatch && cityMatch && queryMatch && priceMatch && areaMatch && bedsMatch && bathsMatch
   })
 
   const totalPages = Math.ceil(filteredProperties.length / ITEMS_PER_PAGE)
@@ -154,8 +160,10 @@ export default function SalePage() {
   const handleFilterChange = (type: string, value: string) => {
     if (type === 'type') {
       setSelectedType(value)
-    } else {
+    } else if (type === 'location') {
       setSelectedLocation(value)
+    } else if (type === 'city') {
+      setSelectedCity(value)
     }
     setCurrentPage(1)
   }
@@ -183,97 +191,140 @@ export default function SalePage() {
         </div>
 
         <div className="mb-8">
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setIsAdvancedOpen(true)}
-              className="order-last ml-auto inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-600"
-            >
-              Filter
-              <AdjustmentsHorizontalIcon className="h-5 w-5" />
-            </button>
-
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Address, City, ZIP..."
-              className="h-12 w-full max-w-[420px] rounded-2xl border border-secondary-200 bg-white px-4 text-secondary-800 shadow-sm placeholder:text-secondary-400 focus:border-primary-400 focus:outline-none"
-            />
-            <button
-              type="button"
-              onClick={() => setCurrentPage(1)}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-600"
-            >
-              Search
-              <MagnifyingGlassIcon className="h-5 w-5" />
-            </button>
-
-            {/* removed inline Filters label for cleaner UI */}
-            <div className="relative">
+          <div className="space-y-3">
+            {/* Row 1: Search */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Address, City, ZIP..."
+                className="h-12 w-full sm:flex-1 sm:min-w-0 sm:max-w-none rounded-2xl border border-secondary-200 bg-white px-4 text-secondary-800 shadow-sm placeholder:text-secondary-400 focus:border-primary-400 focus:outline-none"
+              />
               <button
-                onClick={() => {
-                  setIsTypeOpen(!isTypeOpen)
-                  setIsLocationOpen(false)
-                }}
-                className="flex items-center justify-between w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                type="button"
+                onClick={() => setCurrentPage(1)}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-600 w-full sm:w-auto"
               >
-                <span className="truncate">
-                  {selectedType === 'all' ? t('sale.filters.allProperties') : t(`navigation.${selectedType}`)}
-                </span>
-                <ChevronDownIcon className={`w-5 h-5 transition-transform ${isTypeOpen ? 'rotate-180' : ''}`} />
+                Search
+                <MagnifyingGlassIcon className="h-5 w-5" />
               </button>
-              {isTypeOpen && (
-                <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
-                  {propertyTypes.map((type) => (
-                    <button
-                      key={type.id}
-                      onClick={() => {
-                        handleFilterChange('type', type.id)
-                        setIsTypeOpen(false)
-                      }}
-                      className={`w-full px-3 py-2 text-left hover:bg-gray-50 ${
-                        selectedType === type.id ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
-                      }`}
-                    >
-                      {type.id === 'all' ? t('sale.filters.allProperties') : t(type.name)}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
-            <div className="relative">
+            {/* Row 2: Filters */}
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
+              {/* Type first */}
+              <div className="relative w-full sm:w-auto">
+                <button
+                  onClick={() => {
+                    setIsTypeOpen(!isTypeOpen)
+                    setIsLocationOpen(false)
+                    setIsCityOpen(false)
+                  }}
+                  className="flex items-center justify-between w-full sm:w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                >
+                  <span className="truncate">
+                    {selectedType === 'all' ? t('sale.filters.allProperties') : t(`navigation.${selectedType}`)}
+                  </span>
+                  <ChevronDownIcon className={`w-5 h-5 transition-transform ${isTypeOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isTypeOpen && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
+                    {propertyTypes.map((type) => (
+                      <button
+                        key={type.id}
+                        onClick={() => {
+                          handleFilterChange('type', type.id)
+                          setIsTypeOpen(false)
+                        }}
+                        className={`w-full px-3 py-2 text-left hover:bg-gray-50 ${
+                          selectedType === type.id ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
+                        }`}
+                      >
+                        {type.id === 'all' ? t('sale.filters.allProperties') : t(type.name)}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* City second */}
+              <div className="relative w-full sm:w-auto">
+                <button
+                  onClick={() => {
+                    setIsCityOpen(!isCityOpen)
+                    setIsTypeOpen(false)
+                    setIsLocationOpen(false)
+                  }}
+                  className="flex items-center justify-between w-full sm:w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                >
+                  <span className="truncate">{selectedCity}</span>
+                  <ChevronDownIcon className={`w-5 h-5 transition-transform ${isCityOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isCityOpen && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
+                    {cities.map((city) => (
+                      <button
+                        key={city}
+                        onClick={() => {
+                          handleFilterChange('city', city)
+                          setIsCityOpen(false)
+                        }}
+                        className={`w-full px-3 py-2 text-left hover:bg-gray-50 ${
+                          selectedCity === city ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
+                        }`}
+                      >
+                        {city}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Location third */}
+              <div className="relative w-full sm:w-auto">
+                <button
+                  onClick={() => {
+                    setIsLocationOpen(!isLocationOpen)
+                    setIsTypeOpen(false)
+                    setIsCityOpen(false)
+                  }}
+                  className="flex items-center justify-between w-full sm:w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                >
+                  <span className="truncate">
+                    {selectedLocation === 'All Locations' ? t('sale.filters.allLocations') : selectedLocation}
+                  </span>
+                  <ChevronDownIcon className={`w-5 h-5 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isLocationOpen && (
+                  <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
+                    {locations.map((location) => (
+                      <button
+                        key={location}
+                        onClick={() => {
+                          handleFilterChange('location', location)
+                          setIsLocationOpen(false)
+                        }}
+                        className={`w-full px-3 py-2 text-left hover:bg-gray-50 ${
+                          selectedLocation === location ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
+                        }`}
+                      >
+                        {location === 'All Locations' ? t('sale.filters.allLocations') : location}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Filter button at the end */}
               <button
-                onClick={() => {
-                  setIsLocationOpen(!isLocationOpen)
-                  setIsTypeOpen(false)
-                }}
-                className="flex items-center justify-between w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                type="button"
+                onClick={() => setIsAdvancedOpen(true)}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-600 w-full sm:w-auto"
               >
-                <span className="truncate">
-                  {selectedLocation === 'All Locations' ? t('sale.filters.allLocations') : selectedLocation}
-                </span>
-                <ChevronDownIcon className={`w-5 h-5 transition-transform ${isLocationOpen ? 'rotate-180' : ''}`} />
+                Filter
+                <AdjustmentsHorizontalIcon className="h-5 w-5" />
               </button>
-              {isLocationOpen && (
-                <div className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg">
-                  {locations.map((location) => (
-                    <button
-                      key={location}
-                      onClick={() => {
-                        handleFilterChange('location', location)
-                        setIsLocationOpen(false)
-                      }}
-                      className={`w-full px-3 py-2 text-left hover:bg-gray-50 ${
-                        selectedLocation === location ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
-                      }`}
-                    >
-                      {location === 'All Locations' ? t('sale.filters.allLocations') : location}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         </div>

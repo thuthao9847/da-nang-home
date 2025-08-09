@@ -70,56 +70,56 @@ export function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-text-light">
-          {t('footer.contact.form.name')}
+          {t('contact.form.name.label')}
         </label>
         <input
           type="text"
           id="name"
           {...register('name')}
           className="mt-1 block w-full rounded-lg border border-secondary-600 bg-secondary-800 px-4 py-2 text-text-light placeholder-secondary-400 focus:border-primary-500 focus:outline-none"
-          placeholder={t('footer.contact.form.namePlaceholder')}
+          placeholder={t('contact.form.name.placeholder')}
         />
         {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
       </div>
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-text-light">
-          {t('footer.contact.form.email')}
+          {t('contact.form.email.label')}
         </label>
         <input
           type="email"
           id="email"
           {...register('email')}
           className="mt-1 block w-full rounded-lg border border-secondary-600 bg-secondary-800 px-4 py-2 text-text-light placeholder-secondary-400 focus:border-primary-500 focus:outline-none"
-          placeholder={t('footer.contact.form.emailPlaceholder')}
+          placeholder={t('contact.form.email.placeholder')}
         />
         {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
       </div>
 
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-text-light">
-          {t('footer.contact.form.phone')} ({t('footer.contact.form.optional')})
+          {t('contact.form.phone.label')} ({t('contact.form.phone.optional')})
         </label>
         <input
           type="tel"
           id="phone"
           {...register('phone')}
           className="mt-1 block w-full rounded-lg border border-secondary-600 bg-secondary-800 px-4 py-2 text-text-light placeholder-secondary-400 focus:border-primary-500 focus:outline-none"
-          placeholder={t('footer.contact.form.phonePlaceholder')}
+          placeholder={t('contact.form.phone.placeholder')}
         />
         {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>}
       </div>
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-text-light">
-          {t('footer.contact.form.message')}
+          {t('contact.form.message.label')}
         </label>
         <textarea
           id="message"
           {...register('message')}
           rows={4}
           className="mt-1 block w-full rounded-lg border border-secondary-600 bg-secondary-800 px-4 py-2 text-text-light placeholder-secondary-400 focus:border-primary-500 focus:outline-none"
-          placeholder={t('footer.contact.form.messagePlaceholder')}
+          placeholder={t('contact.form.message.placeholder')}
         />
         {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
       </div>
@@ -130,15 +130,15 @@ export function ContactForm() {
         className="w-full rounded-lg bg-primary-500 px-4 py-2 font-semibold text-text-light hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50"
       >
         {submitStatus === 'submitting'
-          ? t('footer.contact.form.sending')
-          : t('footer.contact.form.send')}
+          ? t('contact.form.sending')
+          : t('contact.form.submit')}
       </button>
 
       {submitStatus === 'success' && (
-        <p className="text-sm text-green-400">{t('footer.contact.form.success')}</p>
+        <p className="text-sm text-green-400">{t('contact.form.success')}</p>
       )}
       {submitStatus === 'error' && (
-        <p className="text-sm text-red-400">{t('footer.contact.form.error')}</p>
+        <p className="text-sm text-red-400">{t('contact.form.error')}</p>
       )}
     </form>
   )
