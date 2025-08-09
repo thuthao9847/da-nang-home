@@ -276,6 +276,35 @@ export const en = {
     spotlightText: 'Looking to spotlight a unique property with expert marketing?',
     letsChat: "Let's chat"
   },
+  detail: {
+    common: {
+      descriptionTitle: 'Property Details',
+      amenitiesTitle: 'Amenities & Features',
+      similarTitle: 'Similar Properties',
+      contactAgent: 'Contact Agent',
+      beds: 'Beds',
+      baths: 'Baths',
+      area: 'm²',
+      garage: 'Garage',
+      built: 'Built',
+      pricePerMonth: 'per month'
+    }
+  },
+  advancedFilter: {
+    title: 'Advanced Search',
+    priceFrom: 'Price from',
+    to: 'to',
+    sizeFrom: 'Size range from',
+    location: 'Location',
+    bedsAny: 'Beds: Any',
+    bathsAny: 'Baths: Any',
+    rooms: 'Rooms',
+    amenities: 'Amenities',
+    cancel: 'Cancel',
+    apply: 'Apply Filters',
+    ariaMin: 'Minimum',
+    ariaMax: 'Maximum'
+  },
   footer: {
     about: {
       title: 'About Us',

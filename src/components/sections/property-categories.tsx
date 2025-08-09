@@ -155,13 +155,10 @@ export function PropertyCategories() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`cursor-pointer bg-white rounded-2xl p-6 text-center transition-all duration-300
+                className={`cursor-pointer rounded-2xl p-6 text-center transition-all duration-300
                   ${selectedCategory === category.id 
-                    ? 'bg-[#F4A261] text-white shadow-lg transform -translate-y-2' 
-                    : 'hover:shadow-md border border-gray-100'}`}
-                style={{
-                  backgroundColor: selectedCategory === category.id ? '#F4A261' : 'white',
-                }}
+                    ? 'bg-primary-500 text-white shadow-lg transform -translate-y-2' 
+                    : 'bg-white hover:shadow-md border border-gray-100'}`}
               >
                 <div className={`flex justify-center mb-4 transition-transform duration-300
                   ${selectedCategory === category.id ? 'text-white' : 'text-gray-700'}`}>
@@ -177,8 +174,8 @@ export function PropertyCategories() {
               </motion.div>
               {selectedCategory === category.id && (
                 <div className="absolute inset-0 -z-10">
-                  <div className="absolute inset-0 bg-[#F4A261] rounded-2xl blur-lg opacity-20" />
-                  <div className="absolute inset-0 bg-[#F4A261] rounded-2xl blur-md opacity-20" />
+                  <div className="absolute inset-0 bg-primary-500 rounded-2xl blur-lg opacity-20" />
+                  <div className="absolute inset-0 bg-primary-500 rounded-2xl blur-md opacity-20" />
                 </div>
               )}
             </div>

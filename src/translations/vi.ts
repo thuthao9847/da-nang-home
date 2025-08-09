@@ -227,6 +227,35 @@ export const vi = {
     spotlightText: 'Bạn muốn giới thiệu một bất động sản độc đáo với tiếp thị chuyên nghiệp?',
     letsChat: 'Hãy trò chuyện'
   },
+  detail: {
+    common: {
+      descriptionTitle: 'Chi Tiết Bất Động Sản',
+      amenitiesTitle: 'Tiện Ích & Tính Năng',
+      similarTitle: 'Bất Động Sản Tương Tự',
+      contactAgent: 'Liên Hệ Tư Vấn',
+      beds: 'Phòng ngủ',
+      baths: 'Phòng tắm',
+      area: 'm²',
+      garage: 'Chỗ đậu xe',
+      built: 'Năm xây dựng',
+      pricePerMonth: 'mỗi tháng'
+    }
+  },
+  advancedFilter: {
+    title: 'Tìm kiếm nâng cao',
+    priceFrom: 'Giá từ',
+    to: 'đến',
+    sizeFrom: 'Diện tích từ',
+    location: 'Khu vực',
+    bedsAny: 'Phòng ngủ: Bất kỳ',
+    bathsAny: 'Phòng tắm: Bất kỳ',
+    rooms: 'Phòng',
+    amenities: 'Tiện ích',
+    cancel: 'Hủy',
+    apply: 'Áp dụng bộ lọc',
+    ariaMin: 'Giá trị nhỏ nhất',
+    ariaMax: 'Giá trị lớn nhất'
+  },
   footer: {
     about: {
       title: 'Về Chúng Tôi',

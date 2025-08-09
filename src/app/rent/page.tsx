@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDownIcon } from '@heroicons/react/24/outline'
+import { motion } from 'framer-motion'
+import { ChevronDownIcon, AdjustmentsHorizontalIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { Container } from '@/components/ui/container'
 import { PropertyCard } from '@/components/ui/property-card'
 import { Pagination } from '@/components/ui/pagination'
+import { GridList } from '@/components/ui/grid-list'
 import { useTranslations } from '@/utils/translations'
+import { AdvancedFilterModal, AdvancedFilterValues } from '@/components/ui/advanced-filter-modal'
 
 const properties = [
   {
@@ -17,7 +19,7 @@ const properties = [
     bedrooms: 2,
     bathrooms: 2,
     area: 85,
-    image: '/images/properties/rent-apartment1.jpg',
+    image: '/images/properties/studio1.jpg',
     href: '/rent/luxury-apartment-ocean-view',
     type: 'apartment'
   },
@@ -29,7 +31,7 @@ const properties = [
     bedrooms: 4,
     bathrooms: 4,
     area: 250,
-    image: '/images/properties/rent-villa1.jpg',
+    image: '/images/properties/rent-villa2.jpg',
     href: '/rent/modern-villa-pool',
     type: 'villa'
   },
@@ -53,7 +55,7 @@ const properties = [
     bedrooms: 3,
     bathrooms: 2,
     area: 150,
-    image: '/images/properties/rent-house1.jpg',
+    image: '/images/properties/office2.jpg',
     href: '/rent/cozy-family-house',
     type: 'house'
   },
@@ -125,6 +127,18 @@ export default function RentPage() {
   const [isTypeOpen, setIsTypeOpen] = useState(false)
   const [isLocationOpen, setIsLocationOpen] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
+  const [isAdvancedOpen, setIsAdvancedOpen] = useState(false)
+  const [advanced, setAdvanced] = useState<AdvancedFilterValues>({
+    priceMin: 0,
+    priceMax: 10000,
+    areaMin: 0,
+    areaMax: 2000,
+    beds: 0,
+    baths: 0,
+    location: 'All Locations',
+    amenities: [],
+  })
+  const [searchQuery, setSearchQuery] = useState('')
 
   const propertyTypes = [
     { id: 'all', name: 'All Properties' },
@@ -135,10 +149,23 @@ export default function RentPage() {
     { id: 'commercial', name: 'navigation.commercial' },
   ]
 
-  const filteredProperties = properties.filter(property => {
+  const filteredProperties = properties.filter((property) => {
     const typeMatch = selectedType === 'all' || property.type === selectedType
-    const locationMatch = selectedLocation === 'All Locations' || property.location.includes(selectedLocation)
-    return typeMatch && locationMatch
+    const locationMatch =
+      selectedLocation === 'All Locations' || (property.location || '').includes(selectedLocation)
+    const q = searchQuery.trim().toLowerCase()
+    const titleLc = (property.title || '').toLowerCase()
+    const locLc = (property.location || '').toLowerCase()
+    const queryMatch = q.length === 0 || titleLc.includes(q) || locLc.includes(q)
+    const price = Number(property.price) || 0
+    const area = Number(property.area) || 0
+    const beds = Number(property.bedrooms) || 0
+    const baths = Number(property.bathrooms) || 0
+    const priceMatch = price >= advanced.priceMin && price <= advanced.priceMax
+    const areaMatch = area >= advanced.areaMin && area <= advanced.areaMax
+    const bedsMatch = beds >= advanced.beds
+    const bathsMatch = baths >= advanced.baths
+    return typeMatch && locationMatch && queryMatch && priceMatch && areaMatch && bedsMatch && bathsMatch
   })
 
   const totalPages = Math.ceil(filteredProperties.length / ITEMS_PER_PAGE)
@@ -180,15 +207,40 @@ export default function RentPage() {
         </div>
 
         <div className="mb-8">
-          <div className="flex flex-wrap gap-4 items-center">
-            <h2 className="text-lg font-semibold text-gray-900">{t('rent.filters.title')}:</h2>
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              onClick={() => setIsAdvancedOpen(true)}
+              className="order-last ml-auto inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-600"
+            >
+              Filter
+              <AdjustmentsHorizontalIcon className="h-5 w-5" />
+            </button>
+
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Address, City, ZIP..."
+              className="h-12 w-full max-w-[420px] rounded-2xl border border-secondary-200 bg-white px-4 text-secondary-800 shadow-sm placeholder:text-secondary-400 focus:border-primary-400 focus:outline-none"
+            />
+            <button
+              type="button"
+              onClick={() => setCurrentPage(1)}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-primary-500 px-6 text-base font-semibold text-white shadow-sm transition-colors hover:bg-primary-600"
+            >
+              Search
+              <MagnifyingGlassIcon className="h-5 w-5" />
+            </button>
+
+            {/* removed inline Filters label for cleaner UI */}
             <div className="relative">
               <button
                 onClick={() => {
                   setIsTypeOpen(!isTypeOpen)
                   setIsLocationOpen(false)
                 }}
-                className="flex items-center justify-between w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-[#F4A261] focus:outline-none focus:ring-2 focus:ring-[#F4A261]"
+                className="flex items-center justify-between w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <span className="truncate">
                   {selectedType === 'all' ? t('rent.filters.allProperties') : t(`navigation.${selectedType}`)}
@@ -205,7 +257,7 @@ export default function RentPage() {
                         setIsTypeOpen(false)
                       }}
                       className={`w-full px-3 py-2 text-left hover:bg-gray-50 ${
-                        selectedType === type.id ? 'text-[#F4A261] bg-orange-50' : 'text-gray-700'
+                        selectedType === type.id ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
                       }`}
                     >
                       {type.id === 'all' ? t('rent.filters.allProperties') : t(type.name)}
@@ -221,7 +273,7 @@ export default function RentPage() {
                   setIsLocationOpen(!isLocationOpen)
                   setIsTypeOpen(false)
                 }}
-                className="flex items-center justify-between w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-[#F4A261] focus:outline-none focus:ring-2 focus:ring-[#F4A261]"
+                className="flex items-center justify-between w-48 px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 hover:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <span className="truncate">
                   {selectedLocation === 'All Locations' ? t('rent.filters.allLocations') : selectedLocation}
@@ -238,7 +290,7 @@ export default function RentPage() {
                         setIsLocationOpen(false)
                       }}
                       className={`w-full px-3 py-2 text-left hover:bg-gray-50 ${
-                        selectedLocation === location ? 'text-[#F4A261] bg-orange-50' : 'text-gray-700'
+                        selectedLocation === location ? 'text-primary-600 bg-primary-50' : 'text-gray-700'
                       }`}
                     >
                       {location === 'All Locations' ? t('rent.filters.allLocations') : location}
@@ -250,21 +302,16 @@ export default function RentPage() {
           </div>
         </div>
 
-        <AnimatePresence mode="popLayout">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-            {paginatedProperties.map((property, index) => (
-              <motion.div
-                key={property.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-              >
-                <PropertyCard {...property} />
-              </motion.div>
-            ))}
-          </div>
-        </AnimatePresence>
+        <div className="mb-8">
+          <GridList
+            items={paginatedProperties}
+            columns={{ base: 1, sm: 2, lg: 3, xl: 4 }}
+            gap="gap-6"
+            animate
+            keyExtractor={(p) => p.id}
+            renderItem={(property) => <PropertyCard {...property} isRental />}
+          />
+        </div>
 
         {filteredProperties.length === 0 ? (
           <motion.div
@@ -291,6 +338,20 @@ export default function RentPage() {
           </motion.div>
         )}
       </Container>
+
+      <AdvancedFilterModal
+        isOpen={isAdvancedOpen}
+        onClose={() => setIsAdvancedOpen(false)}
+        onApply={(vals) => {
+          setAdvanced(vals)
+          setIsAdvancedOpen(false)
+          setCurrentPage(1)
+        }}
+        priceRange={{ min: 0, max: 10000, step: 50 }}
+        areaRange={{ min: 0, max: 2000, step: 10 }}
+        locations={[...locations]}
+        initial={advanced}
+      />
     </div>
   )
 } 

@@ -24,25 +24,29 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
   }
 
   return (
-    <div className="flex items-center justify-center space-x-2">
+    <div className="flex items-center justify-center gap-6">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg border border-gray-300 hover:border-primary-500 disabled:opacity-50 disabled:hover:border-gray-300"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-secondary-200 bg-white text-secondary-800 shadow-sm transition-colors hover:border-primary-300 disabled:opacity-50 disabled:hover:border-secondary-200"
+        aria-label="Previous page"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="h-5 w-5" />
       </button>
 
       {totalPages > 5 && currentPage > 3 && (
         <>
           <button
             onClick={() => onPageChange(1)}
-            className={`w-10 h-10 rounded-lg border border-gray-300 hover:border-primary-500
-              ${currentPage === 1 ? 'bg-primary-50 text-primary-600 border-primary-500' : ''}`}
+            className={`inline-flex h-10 min-w-10 items-center justify-center rounded-xl px-4 text-base font-semibold transition-colors ${
+              currentPage === 1
+                ? 'bg-primary-500 text-white'
+                : 'text-secondary-900 hover:text-primary-500'
+            }`}
           >
             1
           </button>
-          {currentPage > 4 && <span className="px-2">...</span>}
+          {currentPage > 4 && <span className="px-3 text-secondary-500">...</span>}
         </>
       )}
 
@@ -50,8 +54,11 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`w-10 h-10 rounded-lg border border-gray-300 hover:border-primary-500
-            ${currentPage === page ? 'bg-primary-50 text-primary-600 border-primary-500' : ''}`}
+          className={`inline-flex h-10 min-w-10 items-center justify-center rounded-xl px-4 text-base font-semibold transition-colors ${
+            currentPage === page
+              ? 'bg-primary-500 text-white'
+              : 'text-secondary-900 hover:text-primary-500'
+          }`}
         >
           {page}
         </button>
@@ -59,11 +66,14 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
 
       {totalPages > 5 && currentPage < totalPages - 2 && (
         <>
-          {currentPage < totalPages - 3 && <span className="px-2">...</span>}
+          {currentPage < totalPages - 3 && <span className="px-3 text-secondary-500">...</span>}
           <button
             onClick={() => onPageChange(totalPages)}
-            className={`w-10 h-10 rounded-lg border border-gray-300 hover:border-primary-500
-              ${currentPage === totalPages ? 'bg-primary-50 text-primary-600 border-primary-500' : ''}`}
+            className={`inline-flex h-10 min-w-10 items-center justify-center rounded-xl px-4 text-base font-semibold transition-colors ${
+              currentPage === totalPages
+                ? 'bg-primary-500 text-white'
+                : 'text-secondary-900 hover:text-primary-500'
+            }`}
           >
             {totalPages}
           </button>
@@ -73,9 +83,10 @@ export function Pagination({ currentPage, totalPages, onPageChange }: Pagination
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg border border-gray-300 hover:border-primary-500 disabled:opacity-50 disabled:hover:border-gray-300"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-secondary-200 bg-white text-secondary-800 shadow-sm transition-colors hover:border-primary-300 disabled:opacity-50 disabled:hover:border-secondary-200"
+        aria-label="Next page"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="h-5 w-5" />
       </button>
     </div>
   )

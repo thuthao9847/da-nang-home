@@ -7,6 +7,16 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline'
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'zh', name: '中文', flag: '🇨🇳' },
+  { code: 'ko', name: '한국어', flag: '🇰🇷' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'bn', name: 'বাংলা', flag: '🇧🇩' },
+  { code: 'pt', name: 'Português', flag: '🇵🇹' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
 ]
 
 export function LanguageSwitcher() {

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
@@ -26,24 +27,10 @@ const navigationConfig: Record<string, NavigationItem> = {
   sale: {
     name: 'navigation.sale',
     href: '/sale',
-    // items: [
-    //   { name: 'navigation.apartment', href: '/sale/apartment' },
-    //   { name: 'navigation.villa', href: '/sale/villa' },
-    //   { name: 'navigation.house', href: '/sale/house' },
-    //   { name: 'navigation.land', href: '/sale/land' },
-    //   { name: 'navigation.commercial', href: '/sale/commercial' },
-    // ],
   },
   rent: {
     name: 'navigation.rent',
     href: '/rent',
-    // items: [
-    //   { name: 'navigation.apartment', href: '/rent/apartment' },
-    //   { name: 'navigation.villa', href: '/rent/villa' },
-    //   { name: 'navigation.house', href: '/rent/house' },
-    //   { name: 'navigation.office', href: '/rent/office' },
-    //   { name: 'navigation.commercial', href: '/rent/commercial' },
-    // ],
   },
   about: {
     name: 'navigation.about',
@@ -58,6 +45,12 @@ const navigationConfig: Record<string, NavigationItem> = {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { t } = useTranslations()
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -93,52 +86,66 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:flex lg:gap-x-8">
-          {Object.values(navigationConfig).map((item) => (
-            <div key={item.name} className="group relative">
-              <Link
-                href={item.href}
-                className="hover:text-primary-500 flex items-center gap-1 text-sm font-semibold leading-6 text-gray-900 group-hover:text-primary-500"
-              >
-                {t(item.name)}
+          {Object.values(navigationConfig).map((item) => {
+            const active = isActive(item.href)
+            return (
+              <div key={item.name} className="group relative">
+                <Link
+                  href={item.href}
+                  className={`flex items-center gap-1 text-sm font-semibold leading-6 transition-colors duration-200 ${
+                    active ? 'text-primary-500' : 'text-gray-900 hover:text-primary-500'
+                  }`}
+                >
+                  {t(item.name)}
+                  {item.items && (
+                    <svg
+                      className={`h-4 w-4 transition-transform duration-300 ${
+                        active ? 'text-primary-500' : 'text-gray-400 group-hover:rotate-180 group-hover:text-primary-500'
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  )}
+                </Link>
                 {item.items && (
-                  <svg
-                    className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180 text-gray-400 group-hover:text-primary-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                )}
-              </Link>
-              {item.items && (
-                <div className="absolute left-1/2 top-full z-10 mt-1 -translate-x-1/2 opacity-0 invisible transform transition-all duration-300 group-hover:opacity-100 group-hover:visible min-w-[240px]">
-                  <div className="pt-2">
-                    <div className="overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
-                      <div className="relative bg-white p-2">
-                        <div className="grid grid-cols-1 gap-1">
-                          {item.items.map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="hover:text-primary-500 block rounded-lg px-4 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50 transition-colors duration-200"
-                            >
-                              {t(subItem.name)}
-                            </Link>
-                          ))}
+                  <div className="absolute left-1/2 top-full z-10 mt-1 -translate-x-1/2 opacity-0 invisible transform transition-all duration-300 group-hover:opacity-100 group-hover:visible min-w-[240px]">
+                    <div className="pt-2">
+                      <div className="overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5">
+                        <div className="relative bg-white p-2">
+                          <div className="grid grid-cols-1 gap-1">
+                            {item.items.map((subItem) => {
+                              const subActive = isActive(subItem.href)
+                              return (
+                                <Link
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-colors duration-200 ${
+                                    subActive
+                                      ? 'text-primary-600 bg-primary-50'
+                                      : 'text-gray-900 hover:bg-gray-50 hover:text-primary-500'
+                                  }`}
+                                >
+                                  {t(subItem.name)}
+                                </Link>
+                              )
+                            })}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            )
+          })}
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -172,46 +179,58 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {Object.values(navigationConfig).map((item) => (
-                  <div key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="flex items-center justify-between rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-primary-500"
-                      onClick={() => !item.items && setMobileMenuOpen(false)}
-                    >
-                      {t(item.name)}
-                      {item.items && (
-                        <svg
-                          className="h-4 w-4 text-gray-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      )}
-                    </Link>
-                    {item.items && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.items.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 hover:text-primary-500"
-                            onClick={() => setMobileMenuOpen(false)}
+                {Object.values(navigationConfig).map((item) => {
+                  const active = isActive(item.href)
+                  return (
+                    <div key={item.name}>
+                      <Link
+                        href={item.href}
+                        className={`flex items-center justify-between rounded-lg px-3 py-2 text-base font-semibold leading-7 transition-colors duration-200 ${
+                          active ? 'text-primary-600 bg-primary-50' : 'text-gray-900 hover:bg-gray-50 hover:text-primary-500'
+                        }`}
+                        onClick={() => !item.items && setMobileMenuOpen(false)}
+                      >
+                        {t(item.name)}
+                        {item.items && (
+                          <svg
+                            className={`h-4 w-4 ${active ? 'text-primary-500' : 'text-gray-400'}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
                           >
-                            {t(subItem.name)}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        )}
+                      </Link>
+                      {item.items && (
+                        <div className="ml-4 mt-2 space-y-2">
+                          {item.items.map((subItem) => {
+                            const subActive = isActive(subItem.href)
+                            return (
+                              <Link
+                                key={subItem.name}
+                                href={subItem.href}
+                                className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                                  subActive
+                                    ? 'text-primary-600 bg-primary-50'
+                                    : 'text-gray-900 hover:bg-gray-50 hover:text-primary-500'
+                                }`}
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {t(subItem.name)}
+                              </Link>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
               <div className="py-6">
                 <div className="mb-4">

@@ -102,7 +102,7 @@ export default function Hero() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="button"
-                    className="flex w-full items-center justify-center rounded-lg bg-[#F4A261] p-2.5 text-text-light transition-colors hover:bg-[#E76F51] focus:outline-none focus:ring-2 focus:ring-[#F4A261] focus:ring-offset-2"
+                    className="flex w-full items-center justify-center rounded-lg bg-primary-500 p-2.5 text-text-light transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                   >
                     <MagnifyingGlassIcon className="h-5 w-5" />
                   </motion.button>
