@@ -28,7 +28,23 @@ export const de = {
       office: { title: 'Büro', description: 'Professionelle Arbeitsplätze', count: '234 Objekte' },
       commercial: { title: 'Gewerbe', description: 'Top-Lagen für Unternehmen', count: '234 Objekte' }
     },
-    howWeHelp: { title: 'Wie wir helfen', subtitle: 'Ihr vertrauenswürdiger Immobilienpartner', steps: { search: { title: 'Suchen', description: 'Ausgewählte Objekte durchsuchen' }, tour: { title: 'Besichtigung', description: 'Besichtigung mit unserem Makler vereinbaren' }, purchase: { title: 'Kauf', description: 'Begleitung durch den gesamten Prozess' } } }
+    howWeHelp: {
+      title: 'Wie wir helfen',
+      subtitle: 'Ihr vertrauenswürdiger Immobilienpartner',
+      buying: 'Kauf',
+      rating: 'Bewerten',
+      selling: 'Verkauf',
+      affordTitle: 'Budget einschätzen',
+      affordDescription: 'Wir helfen Ihnen, Ihren Budgetrahmen zu ermitteln und im Käuferprofil zu speichern.',
+      costsTitle: 'Monatliche Kosten verstehen',
+      costsDescription: 'Berechnen Sie Hypothekenraten und weitere Wohnnebenkosten.',
+      paymentTitle: 'Hilfe für die Anzahlung',
+      paymentDescription: 'Erfahren Sie mehr über Förderprogramme und Finanzierungsoptionen.',
+      learnMore: 'Mehr erfahren',
+      spotlightText: 'Möchten Sie eine besondere Immobilie mit professionellem Marketing hervorheben?',
+      letsChat: 'Sprechen wir',
+      steps: { search: { title: 'Suchen', description: 'Ausgewählte Objekte durchsuchen' }, tour: { title: 'Besichtigung', description: 'Besichtigung mit unserem Makler vereinbaren' }, purchase: { title: 'Kauf', description: 'Begleitung durch den gesamten Prozess' } }
+    }
   },
   sale: { title: 'Immobilien zu verkaufen', subtitle: 'Finden Sie Ihr Traumhaus in Vietnam', filters: { title: 'Filter', propertyType: 'Immobilientyp', location: 'Lage', allProperties: 'Alle Objekte', allLocations: 'Alle Lagen' }, noResults: 'Keine Objekte für Ihre Suche gefunden.', propertyDetails: { bedrooms: 'Schlafzimmer', bathrooms: 'Badezimmer', area: 'm²', viewDetails: 'Details ansehen', addToFavorites: 'Zu Favoriten', removeFromFavorites: 'Aus Favoriten entfernen' } },
   rent: { title: 'Immobilien zu vermieten', subtitle: 'Finden Sie Ihre ideale Mietimmobilie in Vietnam', filters: { title: 'Filter', propertyType: 'Immobilientyp', location: 'Lage', allProperties: 'Alle Objekte', allLocations: 'Alle Lagen' }, noResults: 'Keine Objekte für Ihre Suche gefunden.', propertyDetails: { bedrooms: 'Schlafzimmer', bathrooms: 'Badezimmer', area: 'm²', viewDetails: 'Details ansehen', addToFavorites: 'Zu Favoriten', removeFromFavorites: 'Aus Favoriten entfernen', pricePerMonth: 'pro Monat' } },
@@ -36,6 +52,22 @@ export const de = {
   contact: { title: 'Kontakt', subtitle: 'Fragen Sie zu unseren Objekten und Services', info: { title: 'Kontaktinformationen', address: { label: 'Adresse', value: '123 Nguyen Van Linh, Da Nang, Vietnam' }, phone: { label: 'Telefon', value: '+84 123 456 789' }, email: { label: 'E-Mail', value: 'info@dananghome.com' }, hours: { label: 'Öffnungszeiten', weekdays: 'Mo–Fr: 9:00–18:00', saturday: 'Sa: 9:00–13:00', sunday: 'So: geschlossen' } }, form: { title: 'Nachricht senden', name: { label: 'Name', placeholder: 'Geben Sie Ihren Namen ein' }, email: { label: 'E-Mail', placeholder: 'Geben Sie Ihre E-Mail ein' }, phone: { label: 'Telefon', placeholder: 'Geben Sie Ihre Telefonnummer ein', optional: 'optional' }, message: { label: 'Nachricht', placeholder: 'Ihre Nachricht...' }, submit: 'Senden', sending: 'Wird gesendet...', success: 'Nachricht gesendet! Wir melden uns bald.', error: 'Senden fehlgeschlagen. Bitte erneut versuchen.' } },
   categories: { title: 'Nach Typ stöbern', subtitle: 'Wählen Sie eine Kategorie', apartment: { title: 'Wohnung', count: '234 Objekte' }, villa: { title: 'Villa', count: '234 Objekte' }, studio: { title: 'Studio', count: '234 Objekte' }, office: { title: 'Büro', count: '234 Objekte' }, townhouse: { title: 'Reihenhaus', count: '234 Objekte' }, commercial: { title: 'Gewerbe', count: '234 Objekte' } },
   properties: { title: 'Empfohlene Objekte', subtitle: 'Premium-Auswahl in ganz Vietnam', viewDetails: 'Details ansehen', beds: 'SZ', baths: 'Bad', area: 'm²' },
+  howWeHelp: {
+    title: 'Wie wir helfen',
+    subtitle: 'Ihr vertrauenswürdiger Immobilienpartner',
+    buying: 'Kauf',
+    rating: 'Bewerten',
+    selling: 'Verkauf',
+    affordTitle: 'Budget einschätzen',
+    affordDescription: 'Wir helfen Ihnen, Ihren Budgetrahmen zu ermitteln und im Käuferprofil zu speichern.',
+    costsTitle: 'Monatliche Kosten verstehen',
+    costsDescription: 'Berechnen Sie Hypothekenraten und weitere Wohnnebenkosten.',
+    paymentTitle: 'Hilfe für die Anzahlung',
+    paymentDescription: 'Erfahren Sie mehr über Förderprogramme und Finanzierungsoptionen.',
+    learnMore: 'Mehr erfahren',
+    spotlightText: 'Möchten Sie eine besondere Immobilie mit professionellem Marketing hervorheben?',
+    letsChat: 'Sprechen wir'
+  },
   detail: { common: { descriptionTitle: 'Immobiliendetails', amenitiesTitle: 'Ausstattung und Merkmale', similarTitle: 'Ähnliche Objekte', contactAgent: 'Makler kontaktieren', beds: 'Schlafzimmer', baths: 'Badezimmer', area: 'm²', garage: 'Garagen', built: 'Baujahr', pricePerMonth: 'pro Monat' } },
   footer: { about: { title: 'Über uns', description: 'Ihr vertrauenswürdiger Partner, um die ideale Immobilie in Vietnam zu finden.' }, contact: { title: 'Kontakt', address: { label: 'Adresse', value: '123 Nguyen Van Linh, Da Nang, Vietnam' }, phone: { label: 'Telefon', value: '+84 123 456 789' }, email: { label: 'E-Mail', value: 'info@dananghome.com' }, hours: { label: 'Öffnungszeiten', weekdays: 'Mo–Fr: 9:00–18:00', saturday: 'Sa: 9:00–13:00', sunday: 'So: geschlossen' } }, quickLinks: { title: 'Schnelllinks', links: [ { name: 'Über uns', href: '/about' }, { name: 'Zu verkaufen', href: '/sale' }, { name: 'Zu vermieten', href: '/rent' }, { name: 'Kontakt', href: '/contact' } ] }, newsletter: { title: 'Newsletter', description: 'Abonnieren Sie Markt-Updates.', placeholder: 'Ihre E-Mail', button: 'Abonnieren', success: 'Vielen Dank für Ihr Abonnement!', error: 'Abonnement fehlgeschlagen. Bitte erneut versuchen.' }, social: { title: 'Folgen Sie uns', facebook: 'Auf Facebook', instagram: 'Auf Instagram', linkedin: 'Auf LinkedIn', youtube: 'Auf YouTube' }, copyright: '© {year} Da Nang Home. Alle Rechte vorbehalten.' },
   advancedFilter: {

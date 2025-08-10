@@ -42,6 +42,21 @@ export const fr = {
     howWeHelp: {
       title: 'Comment nous aidons',
       subtitle: 'Votre partenaire immobilier de confiance',
+      // Boutons de catégories
+      buying: 'Acheter',
+      rating: 'Évaluer',
+      selling: 'Vendre',
+      // Cartes en bas
+      affordTitle: 'Estimez votre budget',
+      affordDescription: "Nous vous aidons à estimer votre budget et à l'enregistrer dans votre profil d'acheteur.",
+      costsTitle: 'Comprenez vos coûts mensuels',
+      costsDescription: 'Calculez vos mensualités hypothécaires et autres dépenses liées au logement.',
+      paymentTitle: 'Aide pour votre apport',
+      paymentDescription: 'Découvrez les aides à l’apport et les solutions de financement disponibles.',
+      learnMore: 'En savoir plus',
+      spotlightText: 'Vous souhaitez mettre en avant un bien unique avec un marketing expert ?',
+      letsChat: 'Discutons-en',
+      // Ancienne structure conservée pour compatibilité
       steps: {
         search: { title: 'Rechercher', description: 'Parcourez notre sélection de biens' },
         tour: { title: 'Visiter', description: 'Planifiez une visite avec nos agents' },
@@ -153,6 +168,22 @@ export const fr = {
     beds: 'chambres',
     baths: 'salles de bain',
     area: 'm²'
+  },
+  howWeHelp: {
+    title: 'Comment nous aidons',
+    subtitle: 'Votre partenaire immobilier de confiance',
+    buying: 'Acheter',
+    rating: 'Évaluer',
+    selling: 'Vendre',
+    affordTitle: 'Estimez votre budget',
+    affordDescription: "Nous vous aidons à estimer votre budget et à l'enregistrer dans votre profil d'acheteur.",
+    costsTitle: 'Comprenez vos coûts mensuels',
+    costsDescription: 'Calculez vos mensualités hypothécaires et autres dépenses liées au logement.',
+    paymentTitle: 'Aide pour votre apport',
+    paymentDescription: 'Découvrez les aides à l’apport et les solutions de financement disponibles.',
+    learnMore: 'En savoir plus',
+    spotlightText: 'Vous souhaitez mettre en avant un bien unique avec un marketing expert ?',
+    letsChat: 'Discutons-en'
   },
   detail: {
     common: {

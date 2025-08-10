@@ -36,6 +36,22 @@ export const bn = {
   contact: { title: 'যোগাযোগ', subtitle: 'আমাদের সম্পত্তি ও সেবা সম্পর্কে জিজ্ঞাসা করুন', info: { title: 'যোগাযোগের তথ্য', address: { label: 'ঠিকানা', value: '123 Nguyen Van Linh, Da Nang, Vietnam' }, phone: { label: 'ফোন', value: '+84 123 456 789' }, email: { label: 'ইমেইল', value: 'info@dananghome.com' }, hours: { label: 'সময়সূচী', weekdays: 'সোম–শুক্র: 9:00–18:00', saturday: 'শনি: 9:00–13:00', sunday: 'রবি: বন্ধ' } }, form: { title: 'বার্তা পাঠান', name: { label: 'আপনার নাম', placeholder: 'নাম লিখুন' }, email: { label: 'ইমেইল', placeholder: 'ইমেইল লিখুন' }, phone: { label: 'ফোন', placeholder: 'ফোন নম্বর লিখুন', optional: 'ঐচ্ছিক' }, message: { label: 'বার্তা', placeholder: 'আপনার বার্তা লিখুন...' }, submit: 'পাঠান', sending: 'পাঠানো হচ্ছে...', success: 'বার্তা পাঠানো হয়েছে! আমরা শীঘ্রই যোগাযোগ করব।', error: 'পাঠাতে ব্যর্থ। আবার চেষ্টা করুন।' } },
   categories: { title: 'ধরন অনুযায়ী', subtitle: 'আপনার পছন্দের ক্যাটাগরি বেছে নিন', apartment: { title: 'এপার্টমেন্ট', count: '২৩৪টি' }, villa: { title: 'ভিলা', count: '২৩৪টি' }, studio: { title: 'স্টুডিও', count: '২৩৪টি' }, office: { title: 'অফিস', count: '২৩৪টি' }, townhouse: { title: 'টাউনহাউস', count: '২৩৪টি' }, commercial: { title: 'বাণিজ্যিক', count: '২৩৪টি' } },
   properties: { title: 'বাছাইকৃত সম্পত্তি', subtitle: 'ভিয়েতনাম জুড়ে প্রিমিয়াম তালিকা', viewDetails: 'বিস্তারিত দেখুন', beds: 'শয়ন', baths: 'বাথ', area: 'মি²' },
+  howWeHelp: {
+    title: 'আমরা কীভাবে সাহায্য করি',
+    subtitle: 'আপনার বিশ্বস্ত রিয়েল এস্টেট পার্টনার',
+    buying: 'ক্রয়',
+    rating: 'মূল্যায়ন',
+    selling: 'বিক্রয়',
+    affordTitle: 'আপনার বাজেট অনুমান করুন',
+    affordDescription: 'আমরা আপনার বাজেটের সীমা অনুমান করতে সাহায্য করি এবং ক্রেতার প্রোফাইলে সংরক্ষণ করি।',
+    costsTitle: 'মাসিক খরচ বুঝুন',
+    costsDescription: 'মর্টগেজ কিস্তি এবং অন্যান্য বাসস্থান-সম্পর্কিত খরচ হিসাব করুন।',
+    paymentTitle: 'ডাউন পেমেন্টে সহায়তা',
+    paymentDescription: 'ডাউন পেমেন্ট সহায়তা প্রোগ্রাম ও ফাইন্যান্সিং অপশন সম্পর্কে জানুন।',
+    learnMore: 'আরও জানুন',
+    spotlightText: 'বিশেষ সম্পত্তি প্রফেশনাল মার্কেটিংয়ের মাধ্যমে তুলে ধরতে চান?',
+    letsChat: 'আলোচনা করি'
+  },
   detail: { common: { descriptionTitle: 'সম্পত্তির বিবরণ', amenitiesTitle: 'সুবিধা এবং বৈশিষ্ট্য', similarTitle: 'সদৃশ সম্পত্তি', contactAgent: 'এজেন্টের সাথে যোগাযোগ', beds: 'শয়নকক্ষ', baths: 'বাথরুম', area: 'মি²', garage: 'গ্যারেজ', built: 'নির্মাণ বছর', pricePerMonth: 'প্রতি মাস' } },
   footer: { about: { title: 'আমাদের সম্পর্কে', description: 'ভিয়েতনামে আপনার আদর্শ সম্পত্তি খুঁজতে আমরা সাহায্য করি।' }, contact: { title: 'যোগাযোগ', address: { label: 'ঠিকানা', value: '123 Nguyen Van Linh, Da Nang, Vietnam' }, phone: { label: 'ফোন', value: '+84 123 456 789' }, email: { label: 'ইমেইল', value: 'info@dananghome.com' }, hours: { label: 'সময়সূচী', weekdays: 'সোম–শুক্র: 9:00–18:00', saturday: 'শনি: 9:00–13:00', sunday: 'রবি: বন্ধ' } }, quickLinks: { title: 'দ্রুত লিংক', links: [ { name: 'আমাদের সম্পর্কে', href: '/about' }, { name: 'বিক্রয়', href: '/sale' }, { name: 'ভাড়া', href: '/rent' }, { name: 'যোগাযোগ', href: '/contact' } ] }, newsletter: { title: 'নিউজলেটার', description: 'সর্বশেষ সম্পত্তি ও বাজার খবর পেতে সাবস্ক্রাইব করুন।', placeholder: 'আপনার ইমেইল', button: 'সাবস্ক্রাইব', success: 'ধন্যবাদ! সাবস্ক্রিপশন সম্পন্ন।', error: 'সাবস্ক্রিপশন ব্যর্থ। আবার চেষ্টা করুন।' }, social: { title: 'সামাজিক মাধ্যম', facebook: 'ফেসবুকে অনুসরণ করুন', instagram: 'ইনস্টাগ্রামে অনুসরণ করুন', linkedin: 'লিংকডইনে অনুসরণ করুন', youtube: 'ইউটিউবে অনুসরণ করুন' }, copyright: '© {year} Da Nang Home. সর্বস্বত্ব সংরক্ষিত.' },
   advancedFilter: {

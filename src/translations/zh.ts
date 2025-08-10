@@ -38,6 +38,18 @@ export const zh = {
     howWeHelp: {
       title: '我们如何帮助您',
       subtitle: '值得信赖的房产伙伴',
+      buying: '购买',
+      rating: '评估',
+      selling: '出售',
+      affordTitle: '估算您的预算',
+      affordDescription: '帮助您估算预算范围，并保存到买家档案。',
+      costsTitle: '了解每月成本',
+      costsDescription: '计算按揭月供及与住房相关的其他费用。',
+      paymentTitle: '首付支持',
+      paymentDescription: '了解首付支持项目与融资方案。',
+      learnMore: '了解更多',
+      spotlightText: '想用专业营销为独特房源做推广吗？',
+      letsChat: '聊一聊',
       steps: {
         search: { title: '搜索房源', description: '浏览我们精选的房源列表' },
         tour: { title: '预约看房', description: '与专业顾问一起实地参观' },
@@ -123,6 +135,22 @@ export const zh = {
     commercial: { title: '商业', count: '234 套' }
   },
   properties: { title: '精选房源', subtitle: '越南各地优质房源推荐', viewDetails: '查看详情', beds: '卧', baths: '卫', area: '㎡' },
+  howWeHelp: {
+    title: '我们如何帮助您',
+    subtitle: '值得信赖的房产伙伴',
+    buying: '购买',
+    rating: '评估',
+    selling: '出售',
+    affordTitle: '估算您的预算',
+    affordDescription: '帮助您估算预算范围，并保存到买家档案。',
+    costsTitle: '了解每月成本',
+    costsDescription: '计算按揭月供及与住房相关的其他费用。',
+    paymentTitle: '首付支持',
+    paymentDescription: '了解首付支持项目与融资方案。',
+    learnMore: '了解更多',
+    spotlightText: '想用专业营销为独特房源做推广吗？',
+    letsChat: '聊一聊'
+  },
   detail: {
     common: {
       descriptionTitle: '房源详情',

@@ -2,9 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  i18n: {
-    locales: ['en', 'vi', 'ru', 'fr', 'zh', 'ko', 'ja', 'hi', 'es', 'bn', 'pt', 'de'],
-    defaultLocale: 'en',
+  trailingSlash: false,
+  async rewrites() {
+    const locales = ['en', 'vi', 'ru', 'fr', 'zh', 'ko', 'ja', 'hi', 'es', 'bn', 'pt', 'de']
+    // Strip locale prefixes from URLs (e.g., /en/sale -> /sale)
+    return [
+      { source: `/:locale(${locales.join('|')})`, destination: '/' },
+      { source: `/:locale(${locales.join('|')})/:path*`, destination: '/:path*' },
+    ]
   },
   images: {
     remotePatterns: [

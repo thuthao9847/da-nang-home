@@ -3,12 +3,19 @@
 import { translations, Language } from '@/translations'
 
 export function useTranslations() {
+  // Hydration guard to avoid SSR/CSR text mismatch
+  const [hydrated, setHydrated] = require('react').useState(false)
+  require('react').useEffect(() => setHydrated(true), [])
+
   // Get language from localStorage or default to 'en'
-  const getLanguage = () => {
+  const getLanguage = (): Language => {
+    // During the very first client render (before useEffect runs),
+    // force 'en' so it matches the server HTML and avoids hydration warning.
+    if (!hydrated) return 'en'
     if (typeof window !== 'undefined') {
       return (localStorage.getItem('language') || 'en') as Language
     }
-    return 'en' as Language
+    return 'en'
   }
 
   const t = (key: string) => {

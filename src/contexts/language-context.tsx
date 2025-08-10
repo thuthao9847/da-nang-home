@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
-type Language = 'en' | 'vi'
+import type { Language } from '@/translations'
 
 interface LanguageContextType {
   language: Language
@@ -16,10 +16,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Load language preference from localStorage on mount
-    const savedLanguage = localStorage.getItem('language') as Language
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'vi')) {
-      setLanguage(savedLanguage)
-    }
+    const savedLanguage = (localStorage.getItem('language') as Language) || 'en'
+    setLanguage(savedLanguage)
   }, [])
 
   const handleSetLanguage = (lang: Language) => {

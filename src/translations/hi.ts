@@ -75,6 +75,22 @@ export const hi = {
   },
   categories: { title: 'प्रकार के अनुसार ब्राउज़ करें', subtitle: 'अपनी पसंद की श्रेणी चुनें', apartment: { title: 'अपार्टमेंट', count: '234 संपत्तियाँ' }, villa: { title: 'विला', count: '234 संपत्तियाँ' }, studio: { title: 'स्टूडियो', count: '234 संपत्तियाँ' }, office: { title: 'ऑफिस', count: '234 संपत्तियाँ' }, townhouse: { title: 'टाउनहाउस', count: '234 संपत्तियाँ' }, commercial: { title: 'वाणिज्यिक', count: '234 संपत्तियाँ' } },
   properties: { title: 'फीचर्ड संपत्तियाँ', subtitle: 'वियतनाम भर की प्रीमियम संपत्तियाँ', viewDetails: 'विवरण देखें', beds: 'शयनकक्ष', baths: 'बाथरूम', area: 'm²' },
+  howWeHelp: {
+    title: 'हम कैसे मदद करते हैं',
+    subtitle: 'रियल एस्टेट में आपका विश्वसनीय पार्टनर',
+    buying: 'खरीद',
+    rating: 'मूल्यांकन',
+    selling: 'बिक्री',
+    affordTitle: 'अपना बजट अनुमानित करें',
+    affordDescription: 'हम आपके बजट की सीमा का अनुमान लगाने और उसे खरीदार प्रोफाइल में सहेजने में मदद करते हैं।',
+    costsTitle: 'मासिक खर्च समझें',
+    costsDescription: 'होम लोन की मासिक किस्तें और अन्य खर्चों की गणना करें।',
+    paymentTitle: 'डाउन पेमेंट सहायता',
+    paymentDescription: 'डाउन पेमेंट सहायता कार्यक्रम और फाइनेंसिंग विकल्पों के बारे में जानें।',
+    learnMore: 'और जानें',
+    spotlightText: 'क्या आप किसी विशेष संपत्ति को प्रोफेशनल मार्केटिंग के साथ हाईलाइट करना चाहते हैं?',
+    letsChat: 'बात करें'
+  },
   detail: { common: { descriptionTitle: 'संपत्ति विवरण', amenitiesTitle: 'सुविधाएँ और विशेषताएँ', similarTitle: 'मिलती-जुलती संपत्तियाँ', contactAgent: 'एजेंट से संपर्क करें', beds: 'शयनकक्ष', baths: 'बाथरूम', area: 'm²', garage: 'गैरेज', built: 'निर्माण वर्ष', pricePerMonth: 'प्रति माह' } },
   footer: { about: { title: 'हमारे बारे में', description: 'दा नांग में आपकी पसंदीदा संपत्ति खोजने में सहायता।' }, contact: { title: 'संपर्क', address: { label: 'पता', value: '123 Nguyen Van Linh, Da Nang, Vietnam' }, phone: { label: 'फोन', value: '+84 123 456 789' }, email: { label: 'ईमेल', value: 'info@dananghome.com' }, hours: { label: 'कार्य समय', weekdays: 'सोम–शुक्र: 9:00–18:00', saturday: 'शनि: 9:00–13:00', sunday: 'रविवार: बंद' } }, quickLinks: { title: 'त्वरित लिंक', links: [ { name: 'हमारे बारे में', href: '/about' }, { name: 'बिक्री', href: '/sale' }, { name: 'किराया', href: '/rent' }, { name: 'संपर्क', href: '/contact' } ] }, newsletter: { title: 'न्यूज़लेटर', description: 'नवीनतम संपत्तियाँ और बाजार समाचार पाएं।', placeholder: 'आपका ईमेल', button: 'सब्सक्राइब', success: 'सब्सक्रिप्शन सफल!', error: 'सब्सक्रिप्शन विफल। कृपया पुनः प्रयास करें।' }, social: { title: 'हमें फॉलो करें', facebook: 'Facebook पर फॉलो करें', instagram: 'Instagram पर फॉलो करें', linkedin: 'LinkedIn पर फॉलो करें', youtube: 'YouTube पर फॉलो करें' }, copyright: '© {year} Da Nang Home. सर्वाधिकार सुरक्षित.' },
   advancedFilter: {
