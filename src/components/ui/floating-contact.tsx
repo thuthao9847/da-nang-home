@@ -35,22 +35,49 @@ export default function FloatingContact() {
       {/* Email Button */}
       <div className="relative flex justify-end">
         {activeButton === 'email' && (
-          <div className="sm:absolute sm:right-14 sm:bottom-0 fixed inset-x-4 bottom-24 flex items-end justify-center sm:justify-end z-50">
-            <div className="w-full sm:w-[22rem] max-w-[calc(100vw-2rem)] rounded-2xl bg-secondary-900 p-4 text-text-light shadow-2xl ring-1 ring-secondary-700">
-              <div className="mb-3 flex items-center justify-between">
-                <h3 className="text-sm font-semibold">Send us a Message</h3>
-                <button
-                  type="button"
-                  onClick={() => setActiveButton(null)}
-                  className="rounded-full p-1 text-secondary-300 hover:bg-secondary-800 hover:text-text-light"
-                  aria-label="Close"
-                >
-                  <XMarkIcon className="h-5 w-5" />
-                </button>
+          <>
+            {/* Desktop/Tablet layout with backdrop */}
+            <div className="hidden sm:block">
+              <div
+                className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm"
+                onClick={() => setActiveButton(null)}
+              />
+              <div className="fixed right-14 bottom-0 z-[60]">
+                <div className="w-[28rem] md:w-[32rem] max-h-[85vh] overflow-y-auto rounded-2xl bg-secondary-900 p-5 md:p-6 text-text-light shadow-2xl ring-1 ring-secondary-700 mb-28">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h3 className="text-base md:text-lg font-semibold">Send us a Message</h3>
+                    <button
+                      type="button"
+                      onClick={() => setActiveButton(null)}
+                      className="rounded-full p-1 text-secondary-300 hover:bg-secondary-800 hover:text-text-light"
+                      aria-label="Close"
+                    >
+                      <XMarkIcon className="h-5 w-5" />
+                    </button>
+                  </div>
+                  <ContactForm />
+                </div>
               </div>
-              <ContactForm />
             </div>
-          </div>
+
+            {/* Mobile floating card (no backdrop) */}
+            <div className="sm:hidden fixed inset-x-4 bottom-24 z-50 flex justify-center">
+              <div className="w-full max-w-[calc(100vw-2rem)] max-h-[85vh] overflow-y-auto rounded-2xl bg-secondary-900 p-4 text-text-light shadow-2xl ring-1 ring-secondary-700">
+                <div className="mb-3 flex items-center justify-between">
+                  <h3 className="text-sm font-semibold">Send us a Message</h3>
+                  <button
+                    type="button"
+                    onClick={() => setActiveButton(null)}
+                    className="rounded-full p-1 text-secondary-300 hover:bg-secondary-800 hover:text-text-light"
+                    aria-label="Close"
+                  >
+                    <XMarkIcon className="h-5 w-5" />
+                  </button>
+                </div>
+                <ContactForm />
+              </div>
+            </div>
+          </>
         )}
         <button
           onClick={() => setActiveButton(activeButton === 'email' ? null : 'email')}

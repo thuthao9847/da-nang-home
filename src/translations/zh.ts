@@ -15,8 +15,8 @@ export const zh = {
   },
   home: {
     hero: {
-      title: '在岘港寻找理想房源',
-      subtitle: '探索豪华别墅、现代公寓与优质商业空间',
+      title: '在越南寻找理想房源',
+      subtitle: '探索遍布越南的豪华别墅、现代公寓与优质商业空间',
       search: {
         title: '搜索房源',
         propertyType: '房源类型',
@@ -47,7 +47,7 @@ export const zh = {
   },
   sale: {
     title: '出售房源',
-    subtitle: '在岘港找到理想住宅',
+    subtitle: '在越南找到理想住宅',
     filters: { title: '筛选', propertyType: '房源类型', location: '位置', allProperties: '全部房源', allLocations: '全部位置' },
     noResults: '未找到符合条件的房源。',
     propertyDetails: {
@@ -61,7 +61,7 @@ export const zh = {
   },
   rent: {
     title: '出租房源',
-    subtitle: '在岘港找到理想租房',
+    subtitle: '在越南找到理想租房',
     filters: { title: '筛选', propertyType: '房源类型', location: '位置', allProperties: '全部房源', allLocations: '全部位置' },
     noResults: '未找到符合条件的房源。',
     propertyDetails: {
@@ -76,8 +76,8 @@ export const zh = {
   },
   about: {
     title: '关于我们',
-    subtitle: '岘港值得信赖的房产伙伴',
-    intro: { title: '我们是谁', description: '我们是岘港领先的房产机构，专注于豪华住宅、公寓与商业房产，帮助客户找到理想之选。' },
+    subtitle: '越南值得信赖的房产伙伴',
+    intro: { title: '我们是谁', description: '我们是越南领先的房产机构，专注于豪华住宅、公寓与商业房产，帮助客户找到理想之选。' },
     mission: { title: '我们的使命', description: '以诚信与专业提供卓越的房产服务。' },
     values: {
       title: '核心价值',
@@ -122,7 +122,7 @@ export const zh = {
     townhouse: { title: '联排', count: '234 套' },
     commercial: { title: '商业', count: '234 套' }
   },
-  properties: { title: '精选房源', subtitle: '岘港优质房源推荐', viewDetails: '查看详情', beds: '卧', baths: '卫', area: '㎡' },
+  properties: { title: '精选房源', subtitle: '越南各地优质房源推荐', viewDetails: '查看详情', beds: '卧', baths: '卫', area: '㎡' },
   detail: {
     common: {
       descriptionTitle: '房源详情',
@@ -138,7 +138,7 @@ export const zh = {
     }
   },
   footer: {
-    about: { title: '关于我们', description: '在岘港为您找到理想房源：别墅、公寓与商业房产。' },
+    about: { title: '关于我们', description: '在越南为您找到理想房源：别墅、公寓与商业房产。' },
     contact: {
       title: '联系',
       address: { label: '地址', value: '123 Nguyen Van Linh, Da Nang, Vietnam' },

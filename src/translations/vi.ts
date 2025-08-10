@@ -14,8 +14,8 @@ export const vi = {
   },
   home: {
     hero: {
-      title: 'Tìm Ngôi Nhà Mơ Ước Tại Đà Nẵng',
-      subtitle: 'Khám phá biệt thự sang trọng, căn hộ hiện đại và mặt bằng kinh doanh đắc địa',
+      title: 'Tìm Ngôi Nhà Mơ Ước Tại Việt Nam',
+      subtitle: 'Khám phá biệt thự sang trọng, căn hộ hiện đại và mặt bằng kinh doanh trên khắp Việt Nam',
       search: {
         title: 'Tìm Kiếm BĐS',
         propertyType: 'Loại Bất Động Sản',
@@ -79,7 +79,7 @@ export const vi = {
   },
   sale: {
     title: 'Nhà Đất Bán',
-    subtitle: 'Tìm ngôi nhà mơ ước tại Đà Nẵng',
+    subtitle: 'Tìm ngôi nhà mơ ước tại Việt Nam',
     filters: {
       title: 'Bộ Lọc',
       propertyType: 'Loại Bất Động Sản',
@@ -99,7 +99,7 @@ export const vi = {
   },
   rent: {
     title: 'Nhà Đất Cho Thuê',
-    subtitle: 'Tìm bất động sản cho thuê tại Đà Nẵng',
+    subtitle: 'Tìm bất động sản cho thuê tại Việt Nam',
     filters: {
       title: 'Bộ Lọc',
       propertyType: 'Loại Bất Động Sản',
@@ -120,7 +120,7 @@ export const vi = {
   },
   about: {
     title: 'Về Chúng Tôi',
-    subtitle: 'Đối tác bất động sản tin cậy tại Đà Nẵng',
+    subtitle: 'Đối tác bất động sản tin cậy tại Việt Nam',
     intro: {
       title: 'Chúng Tôi Là Ai',
       description: 'Chúng tôi là công ty bất động sản hàng đầu tại Đà Nẵng, chuyên về bất động sản cao cấp, căn hộ và mặt bằng thương mại. Với nhiều năm kinh nghiệm, chúng tôi giúp khách hàng tìm được bất động sản hoàn hảo.'
@@ -205,7 +205,7 @@ export const vi = {
   },
   properties: {
     title: 'Bất Động Sản Nổi Bật',
-    subtitle: 'Khám phá những bất động sản cao cấp được chọn lọc tại Đà Nẵng',
+    subtitle: 'Khám phá những bất động sản cao cấp được chọn lọc trên khắp Việt Nam',
     viewDetails: 'Xem Chi Tiết',
     beds: 'phòng ngủ',
     baths: 'phòng tắm',
@@ -259,7 +259,7 @@ export const vi = {
   footer: {
     about: {
       title: 'Về Chúng Tôi',
-      description: 'Đối tác tin cậy của bạn trong việc tìm kiếm bất động sản hoàn hảo tại Đà Nẵng. Chúng tôi chuyên về biệt thự cao cấp, căn hộ và mặt bằng kinh doanh để bán và cho thuê.'
+      description: 'Đối tác tin cậy của bạn trong việc tìm kiếm bất động sản hoàn hảo tại Việt Nam. Chúng tôi chuyên về biệt thự cao cấp, căn hộ và mặt bằng kinh doanh để bán và cho thuê.'
     },
     contact: {
       title: 'Liên Hệ',

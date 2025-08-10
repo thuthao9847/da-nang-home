@@ -14,8 +14,8 @@ export const en = {
   },
   home: {
     hero: {
-      title: 'Find Your Dream Property in Da Nang',
-      subtitle: 'Discover luxury villas, modern apartments, and prime commercial spaces',
+      title: 'Find Your Dream Property in Vietnam',
+      subtitle: 'Discover luxury villas, modern apartments, and prime commercial spaces across Vietnam',
       search: {
         title: 'Search Properties',
         propertyType: 'Property Type',
@@ -79,7 +79,7 @@ export const en = {
   },
   sale: {
     title: 'Properties for Sale',
-    subtitle: 'Find your dream property in Da Nang',
+    subtitle: 'Find your dream property in Vietnam',
     filters: {
       title: 'Filters',
       propertyType: 'Property Type',
@@ -99,7 +99,7 @@ export const en = {
   },
   rent: {
     title: 'Properties for Rent',
-    subtitle: 'Find your perfect rental property in Da Nang',
+    subtitle: 'Find your perfect rental property in Vietnam',
     filters: {
       title: 'Filters',
       propertyType: 'Property Type',
@@ -120,7 +120,7 @@ export const en = {
   },
   about: {
     title: 'About Us',
-    subtitle: 'Your Trusted Real Estate Partner in Da Nang',
+    subtitle: 'Your Trusted Real Estate Partner in Vietnam',
     intro: {
       title: 'Who We Are',
       description: 'We are a leading real estate agency in Da Nang, specializing in luxury properties, apartments, and commercial spaces. With years of experience, we help our clients find their perfect property.'
@@ -254,7 +254,7 @@ export const en = {
   },
   properties: {
     title: 'Featured Properties',
-    subtitle: 'Discover our hand-picked selection of premium properties in Da Nang',
+    subtitle: 'Discover our hand-picked selection of premium properties across Vietnam',
     viewDetails: 'View Details',
     beds: 'beds',
     baths: 'baths',
@@ -308,7 +308,7 @@ export const en = {
   footer: {
     about: {
       title: 'About Us',
-      description: 'Your trusted partner in finding the perfect property in Da Nang. We specialize in luxury villas, apartments, and commercial properties for sale and rent.'
+      description: 'Your trusted partner in finding the perfect property in Vietnam. We specialize in luxury villas, apartments, and commercial properties for sale and rent.'
     },
     contact: {
       title: 'Contact Us',

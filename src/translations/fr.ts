@@ -15,8 +15,8 @@ export const fr = {
   },
   home: {
     hero: {
-      title: 'Trouvez votre bien idéal à Da Nang',
-      subtitle: 'Découvrez des villas de luxe, des appartements modernes et des espaces commerciaux de premier choix',
+      title: 'Trouvez votre bien idéal au Vietnam',
+      subtitle: 'Découvrez des villas de luxe, des appartements modernes et des espaces commerciaux à travers tout le Vietnam',
       search: {
         title: 'Recherche de biens',
         propertyType: 'Type de bien',
@@ -51,7 +51,7 @@ export const fr = {
   },
   sale: {
     title: 'Biens à vendre',
-    subtitle: 'Trouvez votre bien idéal à Da Nang',
+    subtitle: 'Trouvez votre bien idéal au Vietnam',
     filters: {
       title: 'Filtres',
       propertyType: 'Type de bien',
@@ -71,7 +71,7 @@ export const fr = {
   },
   rent: {
     title: 'Biens à louer',
-    subtitle: 'Trouvez votre bien à louer à Da Nang',
+    subtitle: 'Trouvez votre bien à louer au Vietnam',
     filters: {
       title: 'Filtres',
       propertyType: 'Type de bien',
@@ -92,7 +92,7 @@ export const fr = {
   },
   about: {
     title: 'À propos',
-    subtitle: 'Votre partenaire immobilier de confiance à Da Nang',
+    subtitle: 'Votre partenaire immobilier de confiance au Vietnam',
     intro: {
       title: 'Qui sommes-nous ?',
       description: 'Agence immobilière de premier plan à Da Nang, spécialisée dans les biens de luxe, appartements et espaces commerciaux.'
@@ -148,7 +148,7 @@ export const fr = {
   },
   properties: {
     title: 'Biens en vedette',
-    subtitle: 'Notre sélection de biens premium à Da Nang',
+    subtitle: 'Notre sélection de biens premium à travers le Vietnam',
     viewDetails: 'Voir les détails',
     beds: 'chambres',
     baths: 'salles de bain',
@@ -169,7 +169,7 @@ export const fr = {
     }
   },
   footer: {
-    about: { title: 'À propos', description: 'Votre partenaire de confiance pour trouver le bien idéal à Da Nang.' },
+    about: { title: 'À propos', description: 'Votre partenaire de confiance pour trouver le bien idéal au Vietnam.' },
     contact: {
       title: 'Contact',
       address: { label: 'Adresse', value: '123 Nguyen Van Linh, Da Nang, Vietnam' },
